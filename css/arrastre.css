@@ -9,6 +9,8 @@ med blue-grey - #202A37
 darker blue-grey - #19202B
 light grey - #F0F1F2
 med grey - #EAEBEC
+med yellow - #E09C0B
+dark yellow - #C68A0A
 */
 
 /*  ########## FONT ##########  */
@@ -97,9 +99,11 @@ nav {
 .navbar-toggle .collapsed {
   color: red;
 }
-#nav-list > li:hover,
-.home-subnav-button:hover {
+#nav-list > li:hover {
   background: #3A7CAA;
+}
+.home-subnav-button:hover {
+  background: #C68A0A;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
   border: transparent;
@@ -143,8 +147,8 @@ nav {
 }
 .home-subnav-button {
   color: #F0F1F2;
-  background: #408ABD;
-  border: 1px solid #3A7CAA;
+  background: #E09C0B;
+  border: 1px solid #C68A0A;
   padding-top: 1%;
 }
 .footer-left,
@@ -221,6 +225,9 @@ nav {
 
 /* Tablets - small screen */
 @media (min-width: 768px) and (max-width: 1027px) {
+  .container {
+    width: 95%;
+  }
   .home-banner {
     font-size: 1.35em;
     height: 400px;
@@ -289,6 +296,9 @@ nav {
 
 /* Phones - very small screen */
 @media (max-width: 767px) {
+  .container {
+    width: 95%;
+  }
   .home-banner {
     font-size: 1.35em;
     height: 400px;
