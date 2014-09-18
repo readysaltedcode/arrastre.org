@@ -13,20 +13,8 @@ med yellow - #E09C0B
 dark yellow - #C68A0A
 */
 
-/*  ########## FONT ##########  */
-@font-face {
-  font-family: Quicksand;
-  src: url(../fonts/Quicksand_Book.otf);
-  font-weight: normal;
-}
-@font-face {
-  font-family: QuicksandBold;
-  src: url(../fonts/Quicksand_Bold.otf);
-  font-weight: bold;
-}
-
 body {
-  font-family: QuicksandBold;
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* ########## HOME ########## */
