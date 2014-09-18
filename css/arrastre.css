@@ -118,6 +118,9 @@ nav {
   color: #F0F1F2;
   text-align: center;
 }
+.home-subnav a:hover {
+  text-decoration: none;
+}
 .home-banner {
   background-image: url("../img/sample_image.jpg");
   background-size: cover;
