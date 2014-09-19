@@ -182,8 +182,8 @@ nav {
   font-size: 1.2em;
 }
 .data-vis-subnav-button,
-.data-vis-subnav-button:hover,
-#active-data-vis-subnav-button {
+#active-data-vis-button,
+.data-vis-subnav-button:hover {
   color: #F0F1F2;
   background: #048E79;
   border: 1px solid #048E79;
@@ -193,7 +193,7 @@ nav {
   background: #1A9F8B;
 }
 .data-vis-subnav-button:hover,
-#active-data-vis-subnav-button {
+#active-data-vis-button {
   background: #048E79;
 }
 .data-vis-subnav a:hover {
@@ -205,7 +205,7 @@ nav {
 }
 #data-vis-animation {
   background: #000;
-  padding: 0;
+  padding: 15px;
 }
 .data-vis-code {
   background: #F0F1F2;
