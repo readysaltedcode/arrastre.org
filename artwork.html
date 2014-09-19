@@ -103,11 +103,59 @@
           <a href="#"><div class="col-lg-five data-vis-subnav-button">
             <p>VIS 5</p>
           </div></a> <!-- /col -->
-
         </div> <!-- /col -->
         <div class="col-lg-2 col-md-1">
         </div> <!-- /col -->
       </div> <!-- /row -->
+
+
+      <div class="row data-vis-code">
+        <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
+        </div> <!-- /col -->
+        <div class="col-lg-8 col-md-10">
+          <div data-height="772" data-theme-id="8632" data-slug-hash="gptAj" data-default-tab="js" data-user="readysaltedcode" class='codepen'><pre class="codepen-code"><code>var jsonEndpointAddress =&quot;https://s3-eu-west-1.amazonaws.com/arrastre/dance_data/kinect+captures/nerddance.json&quot;;
+
+          var frames = [];
+          var frameIndex = -1;
+
+          function newFrame() {
+            if (++frameIndex &gt;= frames.length) frameIndex = 0;
+            var data = frames[frameIndex];
+            
+            var canvas = $(&quot;#skeletonLand&quot;)[0].getContext(&quot;2d&quot;) ;
+           
+            canvas.fillStyle = &quot;#000000&quot;;
+            canvas.fillRect(0,0,1000, 600);
+            $.each(data.Skeletons, function(index, skeleton) {
+              if (skeleton.TrackingState == 2) {
+                 $.each(skeleton.Joints, function(index,joint) {
+                      if (joint.JointType == &quot;Head&quot;) canvas.fillStyle = &quot;#FF8800&quot;;
+                      else canvas.fillStyle = &quot;#FFFFFF&quot;;
+                      canvas.beginPath();
+                      canvas.arc(400-100*joint.Position.X, 300-100*joint.Position.Y,10,0, 2* Math.PI, false);
+                      canvas.fill();
+                      //canvas.fillRect(400-100*joint.Position.X, 300-100*joint.Position.Y,10,10);
+                 })
+              }
+            });
+          };
+
+          function loaded(data) {
+              frames = data;
+              window.setInterval(newFrame, 1000/30);
+          }
+
+          jQuery(document).ready(function($){$.getJSON(jsonEndpointAddress,loaded);});
+
+          </code></pre>
+          </div><script async src="//codepen.io/assets/embed/ei.js"></script>
+          <p class="codepen-footer">You can edit this data visualisation and watch the changes in real-time <a href='http://codepen.io/readysaltedcode/pen/gptAj/'>here</a> on <a href='http://codepen.io'>CodePen</a>.</p>
+        </div> <!-- /col -->
+        <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
+        </div> <!-- /col -->
+      </div> <!-- /row -->
+
+
        <div class="row">
         <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
         </div> <!-- /col -->

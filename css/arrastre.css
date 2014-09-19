@@ -180,8 +180,6 @@ nav {
   margin: 0;
   background: #F0F1F2;
   font-size: 1.2em;
-  padding-bottom: 5%;
-
 }
 .data-vis-subnav-button,
 .data-vis-subnav-button:hover,
@@ -208,6 +206,20 @@ nav {
 #data-vis-animation {
   background: #000;
   padding: 0;
+}
+.data-vis-code {
+  background: #F0F1F2;
+  text-align: left;
+  margin: 0;
+}
+pre {
+  border: none;
+}
+.codepen-code {
+  background: #EAEBEC;
+}
+.codepen-footer {
+  text-align: center;
 }
 @media (min-width:1200px) {
   .col-lg-five {
