@@ -171,7 +171,10 @@ nav {
   margin: 3% auto;
   text-align: center;
 }
-.data-vis-nav-button:hover {
+.data-vis-nav-button a {
+  color: #333333;
+}
+.data-vis-nav-button a:hover {
   color: #74777C;
 }
 .data-vis-subnav {
@@ -292,8 +295,13 @@ pre {
     padding: 0;
   }
   .home-subnav-button,
-  .data-vis-subnav-button {
+  .data-vis-subnav-button,
+  .data-vis-subnav-button:hover {
     padding-top: 2%;
+  }
+  .data-vis-subnav-button {
+    margin-left: -15px;
+    margin-right: -15px;
   }
 /* Change the navbar breakpoint to collapse on small screens*/
   .container-fluid {
@@ -367,9 +375,15 @@ pre {
     padding: 0;
   }
   .home-subnav-button,
-  .data-vis-subnav-button {
+  .data-vis-subnav-button,
+  .data-vis-subnav-button:hover {
     padding-top: 3%;
   }
+  .data-vis-subnav-button {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
   .footer-left,
   .footer-right {
     font-size: 0.6em;
@@ -385,6 +399,15 @@ pre {
   #nav-list > li {
     width: 100%;
   }
+  .data-vis-nav-button {
+    font-size: 1.5em;
+    margin: 5% auto;
+  }
+}
+@media (max-width: 569px) {
+  .data-vis-nav-button {
+    margin: 10% auto;
+  }  
 }
 
 /* Resize navbar based on browser size */
