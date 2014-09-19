@@ -223,6 +223,7 @@ pre {
 }
 .codepen-footer {
   text-align: center;
+  font-size: 1.5em;
 }
 @media (min-width:1200px) {
   .col-lg-five {
