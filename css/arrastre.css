@@ -12,8 +12,7 @@ body {
   font-size: 1.2em;
 }
 .navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-brand:hover,
-.home-subnav-button:hover {
+.navbar-default .navbar-brand:hover {
   color: #F0F1F2;
 }
 .navbar-default .navbar-toggle:hover,
@@ -74,7 +73,6 @@ nav {
 #active-nav {
   background: #3A7CAA;
 }
-.home-subnav-button:hover,
 #active-subnav-button {
   background: #C68A0A;
 }
@@ -85,14 +83,10 @@ nav {
   padding-left: 0;
 }
 .home-banner,
-.home-subnav,
 .footer-left,
 .footer-right {
   color: #F0F1F2;
   text-align: center;
-}
-.home-subnav a:hover {
-  text-decoration: none;
 }
 .home-banner {
   background-image: url("../img/sample_image.jpg");
@@ -115,17 +109,23 @@ nav {
   width: 50%;
   margin-bottom: 3%;
 }
-.home-subnav {
+.prebanner,
+.content {
   margin: 0;
   background: #F0F1F2;
   font-size: 1.2em;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }
-.home-subnav-button {
-  color: #F0F1F2;
-  background: #E09C0B;
-  border: 1px solid #C68A0A;
-  padding-top: 1%;
+#prebanner,
+#prebanner-text,
+#content,
+#content-text {
+  padding-left: 0;
+  padding-right: 0;
+}
+.prebanner-blurb,
+#content-text p {
+  padding-top: 2%;
 }
 .footer-left,
 .footer-right {
@@ -147,8 +147,17 @@ nav {
 }
 
 /* ########## ABOUT ########## */
-
-
+.prebanner,
+.content {
+  font-size: 1.2em;
+  color: #74777C;
+  text-align: left;
+}
+.prebanner-title {
+  font-size: 2.0em;
+  margin-top: 2%;
+  margin-bottom: 0;
+}
 
 /* ########## DATA VIS ########## */
 .data-vis-header {
@@ -260,14 +269,14 @@ pre {
   .home-banner > a {
     font-size: 0.7em;
   }
-  .home-subnav {
+  #prebanner,
+  #content {
     font-size: 1.0em;
   }
   .footer-left,
   .footer-right {
     font-size: 0.65em;
   }
-  .home-subnav-button,
   .data-vis-subnav-button {
     padding-top: 1%;
   }
@@ -289,13 +298,17 @@ pre {
   .home-banner > a {
     font-size: 0.65em;
   }
-  .home-subnav {
+  .prebanner,
+  .content {
+    padding-left: 5%;
+    padding-right: 5%;
     padding-bottom: 0;
   }
-  #home-subnav {
+  #prebanner,
+  #content {
     padding: 0;
+    font-size: 1.0em;
   }
-  .home-subnav-button,
   .data-vis-subnav-button,
   .data-vis-subnav-button:hover {
     padding-top: 2%;
@@ -369,13 +382,16 @@ pre {
   .home-banner > a {
     font-size: 0.65em;
   }
-  .home-subnav {
+  .prebanner,
+  .content {
+    padding-left: 5%;
+    padding-right: 5%;
     padding-bottom: 0;
   }
-  #home-subnav {
+  #prebanner,
+  #content {
     padding: 0;
   }
-  .home-subnav-button,
   .data-vis-subnav-button,
   .data-vis-subnav-button:hover {
     padding-top: 3%;
