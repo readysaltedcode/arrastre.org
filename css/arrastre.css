@@ -97,7 +97,7 @@ nav {
 .home-banner {
   background-image: url("../img/sample_image.jpg");
   background-size: cover;
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: bold;
   padding: 5% 15%;
   width: 100%;
@@ -113,7 +113,7 @@ nav {
 }
 .home-banner > img {
   width: 50%;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
 }
 .home-subnav {
   margin: 0;
