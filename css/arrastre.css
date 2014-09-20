@@ -166,11 +166,13 @@ nav {
   margin-left: 0;
 }
 .data-vis-title {
+  text-align: center;
   font-size: 2.0em;
   margin-top: 2%;
   margin-bottom: 0;
 }
 .data-vis-subtitle {
+  text-align: center;
   font-size: 1.5em;
   color: #74777C;
   margin-bottom: 3%;
