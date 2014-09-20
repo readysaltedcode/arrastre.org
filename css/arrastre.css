@@ -428,6 +428,19 @@ pre {
     margin: 10% auto;
   }  
 }
+@media (max-width: 460px) {
+  .data-vis-title {
+    font-size: 1.5em;
+  }
+  .data-vis-subtitle {
+    font-size: 1.0em;
+  }
+  .data-vis-nav-button {
+    font-size: 1.5em;
+    margin: 10% auto;
+    margin-left:-15px;
+  }
+}
 
 /* Resize navbar based on browser size */
 @media (min-width: 1793px) and (max-width: 1845px) { #nav-list { width: 86.6% } }
