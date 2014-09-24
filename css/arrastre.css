@@ -1,5 +1,14 @@
+@font-face {
+  font-family: qsand;
+  src: url(../fonts/qsand-regular.eot),
+       url(../fonts/qsand-regular.woff) format('woff'),
+       url(../fonts/qsand-regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: qsand, sans-serif;
 }
 
 /* ########## HOME ########## */
