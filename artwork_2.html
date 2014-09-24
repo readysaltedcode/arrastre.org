@@ -215,7 +215,6 @@
                 ]
               };
 
-
               function getJointsOfSkeleton(json, skeleton) {
                 // Transform Kinect data into object
                 var joints = {};
@@ -228,7 +227,6 @@
                 });
                 return joints;
               }
-
 
               function initialiseTree() {
                 var treeLayout = d3.layout.tree()
@@ -254,7 +252,6 @@
 
                 // console.log(treeLinksArray);
               }
-
 
               function drawTree() {
                 ctx.save();
@@ -294,7 +291,6 @@
                 ctx.restore();
               }
 
-
               function updateNodes(joints) {
                 // Interpolate between treeNodes and joints
 
@@ -315,8 +311,6 @@
 
                 // console.log(treeNodes);    
               }
-
-
               
               function clear() {
                 // ctx.globalAlpha = 0.9;
