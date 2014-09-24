@@ -60,8 +60,7 @@
             <a href="artwork_4.html"><span class="glyphicon glyphicon-chevron-left"></span></a>
           </div> <!-- /col -->
           <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-            <p class="data-vis-title">UNNAMED SCULPTURE v5</p>
-            <p class="data-vis-subtitle">DANIEL FRANK</p>
+            <p class="data-vis-title">COMPUTATION</p>
           </div> <!-- /col -->
           <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 data-vis-nav-button">
             <a href="artwork.html"><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -76,7 +75,7 @@
         <div class="col-lg-2 col-md-1">
         </div> <!-- /col -->
         <div class="col-lg-8 col-md-10" id="data-vis-animation">
-          <p data-height="645" data-theme-id="8632" data-slug-hash="gptAj" data-default-tab="result" data-user="readysaltedcode" class='codepen'>See the Pen <a href='http://codepen.io/readysaltedcode/pen/gptAj/'>jsonplayer</a> by Genevieve Smith-Nunes (<a href='http://codepen.io/readysaltedcode'>@readysaltedcode</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+          <p data-height="835" data-theme-id="8632" data-slug-hash="Ewgus" data-default-tab="result" data-user="readysaltedcode" class='codepen'>See the Pen <a href='http://codepen.io/readysaltedcode/pen/Ewgus/'>Ewgus</a> by Genevieve Smith-Nunes (<a href='http://codepen.io/readysaltedcode'>@readysaltedcode</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
           <script async src="http://codepen.io/assets/embed/ei.js"></script>
         </div> <!-- /col -->
         <div class="col-lg-2 col-md-1">
@@ -113,43 +112,124 @@
         <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
         </div> <!-- /col -->
         <div class="col-lg-8 col-md-10">
-          <div data-height="772" data-theme-id="8632" data-slug-hash="gptAj" data-default-tab="js" data-user="readysaltedcode" class='codepen'><pre class="codepen-code"><code>var jsonEndpointAddress =&quot;https://s3-eu-west-1.amazonaws.com/arrastre/dance_data/kinect+captures/nerddance.json&quot;;
+          <div data-height="1800" data-theme-id="8632" data-slug-hash="Ewgus" data-default-tab="js" data-user="readysaltedcode" class='codepen'>
+            <pre><code>
+              function Computational(canvas) {
+                var xScale = d3.scale.linear().domain([-1, 1]).range([0, 1000]);
+                var yScale = d3.scale.linear().domain([-0.2, 1.2]).range([1000, 0]);
 
-          var frames = [];
-          var frameIndex = -1;
+                var ctx = canvas.getContext(&#39;2d&#39;);
 
-          function newFrame() {
-            if (++frameIndex &gt;= frames.length) frameIndex = 0;
-            var data = frames[frameIndex];
-            
-            var canvas = $(&quot;#skeletonLand&quot;)[0].getContext(&quot;2d&quot;) ;
-           
-            canvas.fillStyle = &quot;#000000&quot;;
-            canvas.fillRect(0,0,1000, 600);
-            $.each(data.Skeletons, function(index, skeleton) {
-              if (skeleton.TrackingState == 2) {
-                 $.each(skeleton.Joints, function(index,joint) {
-                      if (joint.JointType == &quot;Head&quot;) canvas.fillStyle = &quot;#FF8800&quot;;
-                      else canvas.fillStyle = &quot;#FFFFFF&quot;;
-                      canvas.beginPath();
-                      canvas.arc(400-100*joint.Position.X, 300-100*joint.Position.Y,10,0, 2* Math.PI, false);
-                      canvas.fill();
-                      //canvas.fillRect(400-100*joint.Position.X, 300-100*joint.Position.Y,10,10);
-                 })
+                ctx.fillStyle = &quot;rgb(0,0,0)&quot;;
+                ctx.fillRect(0, 0, 1000, 800);
+                
+                // 3 colours, one for extremities, another for insides, another for in-betweens
+                var colors = {
+                  HipCenter : &#39;#ff7f0e&#39;,
+                  Spine : &#39;#ff7f0e&#39;,
+                  ShoulderCenter : &#39;#ff7f0e&#39;,
+                  Head : &#39;#e7cb94&#39;,
+                  ShoulderLeft : &#39;#bd9e39&#39;,
+                  ElbowLeft : &#39;#bd9e39&#39;,
+                  WristLeft : &#39;#bd9e39&#39;,
+                  HandLeft : &#39;#e7cb94&#39;,
+                  ShoulderRight : &#39;#bd9e39&#39;,
+                  ElbowRight : &#39;#bd9e39&#39;,
+                  WristRight : &#39;#bd9e39&#39;,
+                  HandRight : &#39;#e7cb94&#39;,
+                  HipLeft : &#39;#bd9e39&#39;,
+                  KneeLeft : &#39;#bd9e39&#39;,
+                  AnkleLeft : &#39;#bd9e39&#39;,
+                  FootLeft : &#39;#e7cb94&#39;,
+                  HipRight : &#39;#bd9e39&#39;,
+                  KneeRight : &#39;#bd9e39&#39;,
+                  AnkleRight : &#39;#bd9e39&#39;,
+                  FootRight : &#39;#e7cb94&#39;
+                }
+
+                // Colour coded hands + feet
+                // var colors = {
+                //   HipCenter : &#39;#5254a3&#39;,
+                //   Spine : &#39;#5254a3&#39;,
+                //   ShoulderCenter : &#39;#5254a3&#39;,
+                //   Head : &#39;#5254a3&#39;,
+                //   ShoulderLeft : &#39;#5254a3&#39;,
+                //   ElbowLeft : &#39;#5254a3&#39;,
+                //   WristLeft : &#39;#5254a3&#39;,
+                //   HandLeft : &#39;#637939&#39;,
+                //   ShoulderRight : &#39;#5254a3&#39;,
+                //   ElbowRight : &#39;#5254a3&#39;,
+                //   WristRight : &#39;#5254a3&#39;,
+                //   HandRight : &#39;#8c6d31&#39;,
+                //   HipLeft : &#39;#5254a3&#39;,
+                //   KneeLeft : &#39;#5254a3&#39;,
+                //   AnkleLeft : &#39;#5254a3&#39;,
+                //   FootLeft : &#39;#843c39&#39;,
+                //   HipRight : &#39;#5254a3&#39;,
+                //   KneeRight : &#39;#5254a3&#39;,
+                //   AnkleRight : &#39;#5254a3&#39;,
+                //   FootRight : &#39;#7b4173&#39;
+                // }
+
+                function getAllJoints(json) {
+                  var joints = [];
+                  _.each(json.Skeletons, function(skeleton) {
+                    _.each(skeleton.Joints, function(joint) {
+                      joints.push(joint);
+                    });
+                  });
+                  return joints;
+                }
+
+                function getJointsOfSkeleton(json, skeleton) {
+                  var joints = [];
+                  if(json.Skeletons === undefined)
+                    return [];
+                  if(skeleton &gt; json.Skeletons.length - 1)
+                    return [];
+                  _.each(json.Skeletons[skeleton].Joints, function(joint) {
+                    joints.push(joint);
+                  });
+                  return joints;
+                }
+
+                function clear() {
+                  ctx.globalAlpha = 1;
+                  ctx.fillStyle = &quot;rgb(0,0,0)&quot;;
+                  ctx.fillRect(0, 0, 1000, 800);
+                }
+                
+                this.draw = function(json) {
+                  // console.log(json);
+                  if(json === undefined) {
+                    return;
+                  }
+
+                  var joints = getJointsOfSkeleton(json, 0);
+                  ctx.globalAlpha = 0.03;
+
+                  _.each(joints, function(joint, i) {
+                    // console.log(joint.JointType)
+                    ctx.fillStyle = colors[joint.JointType];
+                    drawCircle(ctx, xScale(joint.Position.X), yScale(joint.Position.Y), 3);
+                  });
+                };
+              };
+
+              // You can choose one of these to visualise a different dance
+              var DATASET_ALGORITHM = &#39;https://s3-eu-west-1.amazonaws.com/arrastre/data/algorithm_&#39;;
+
+              var DATASET_BINARY = &#39;https://s3-eu-west-1.amazonaws.com/arrastre/data/binary_&#39;;
+
+              var DATASET_WHOLEPIECE = &#39;https://s3-eu-west-1.amazonaws.com/arrastre/data/wholepiece_&#39;;
+
+              var dataFetcher = new ChunkedDataFetcher(DATASET_ALGORITHM);
+              var computational = new Computational( document.getElementById(&#39;mycanvas&#39;));
+              dataFetcher.drawFunction = function(json) {computational.draw(json);
               }
-            });
-          };
-
-          function loaded(data) {
-              frames = data;
-              window.setInterval(newFrame, 1000/30);
-          }
-
-          jQuery(document).ready(function($){$.getJSON(jsonEndpointAddress,loaded);});
-
           </code></pre>
           </div><script async src="//codepen.io/assets/embed/ei.js"></script>
-          <p class="codepen-footer">You can edit this data visualisation and watch the changes in real-time <a href='http://codepen.io/readysaltedcode/pen/gptAj/'>here</a> on <a href='http://codepen.io'>CodePen</a>.</p>
+          <p class="codepen-footer">You can edit this data visualisation and watch the changes in real-time <a href='http://codepen.io/readysaltedcode/pen/Ewgus/'>here</a> on <a href='http://codepen.io'>CodePen</a>.</p>
         </div> <!-- /col -->
         <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
         </div> <!-- /col -->
