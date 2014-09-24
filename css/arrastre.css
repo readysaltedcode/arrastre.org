@@ -248,7 +248,7 @@ pre {
   text-align: center;
   font-size: 1.5em;
 }
-#data-vis-animation {
+#data-vis-animation body {
   text-align:center;
 }
 @media (min-width:1200px) {
