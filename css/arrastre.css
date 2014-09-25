@@ -274,6 +274,9 @@ pre {
     float: left;
   }
 }
+iframe.cp_embed_iframe {
+  height: 616px;
+}
 
 
 
@@ -314,10 +317,45 @@ pre {
   padding-top: 0;
 }
 /* #################### RESPONSIVENESS #################### */
+/* Resizing height of data vis animation */
+@media (min-width: 1500px) and (max-width: 1800px) {
+  iframe.cp_embed_iframe {
+    height: 500px;
+  }
+}
+@media (min-width: 800px) and (max-width: 1499px) {
+  iframe.cp_embed_iframe {
+    height: 400px;
+  }
+}
+@media (min-width: 600px) and (max-width: 799px) {
+  iframe.cp_embed_iframe {
+    height: 350px;
+  }
+}
+@media (min-width: 450px) and (max-width: 599px) {
+  iframe.cp_embed_iframe {
+    height: 250px;
+  }
+}
+@media (min-width: 350px) and (max-width: 449px) {
+  iframe.cp_embed_iframe {
+    height: 175px;
+  }
+}
+@media (max-width: 349px) {
+  iframe.cp_embed_iframe {
+    height: 125px;
+  }
+}
+
 /* Resizing font on data vis navigation */
 @media (min-width: 1451px) and (max-width: 1600px) {
   .data-vis-subnav {
     font-size: 1.1em;
+  }
+  iframe.cp_embed_iframe {
+    height: 500px;
   }
 }
 @media (min-width: 1301px) and (max-width: 1450px) {
