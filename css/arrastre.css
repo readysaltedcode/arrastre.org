@@ -96,6 +96,7 @@ nav {
   padding-left: 0;
 }
 .home-banner,
+.event-container,
 .footer-left,
 .footer-right {
   color: #F0F1F2;
@@ -104,12 +105,19 @@ nav {
 .home-banner {
   background-image: url("../img/main_image.jpg");
   background-size: cover;
+  padding: 5% 15%;
+}
+.event-container {
+  background: #2A3748;
+}
+.home-banner,
+.event-container {
   font-size: 1.8em;
   font-weight: bold;
-  padding: 5% 15%;
   width: 100%;
   height: 500px;
 }
+
 .home-banner > a {
   background: none;
   color: #F0F1F2;
@@ -316,7 +324,8 @@ pre {
   #bs-example-navbar-collapse-1 {
     padding-left: 0;
   }
-  .home-banner {
+  .home-banner,
+  .event-container {
     font-size: 1.5em;
     height: 400px;
     padding: 5% 15%;
@@ -345,7 +354,8 @@ pre {
   nav {
     width: 100%;
   }
-  .home-banner {
+  .home-banner,
+  .event-container {
     font-size: 1.35em;
     height: 400px;
     padding: 5% 10%;
@@ -429,7 +439,8 @@ pre {
   nav {
     width: 100%;
   }
-  .home-banner {
+  .home-banner,
+  .event-container {
     font-size: 1.35em;
     height: 400px;
     padding: 5% 10%;
