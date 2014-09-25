@@ -314,7 +314,22 @@ pre {
   padding-top: 0;
 }
 /* #################### RESPONSIVENESS #################### */
-
+/* Resizing font on data vis navigation */
+@media (min-width: 1451px) and (max-width: 1600px) {
+  .data-vis-subnav {
+    font-size: 1.1em;
+  }
+}
+@media (min-width: 1301px) and (max-width: 1450px) {
+  .data-vis-subnav {
+    font-size: 1.0em;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1300px) {
+  .data-vis-subnav {
+    font-size: 0.85em;
+  }
+}
 /* Desktop - medium screen */
 @media (min-width: 1028px) and (max-width: 1199px) {
   .navbar-default .navbar-nav > li > a,
